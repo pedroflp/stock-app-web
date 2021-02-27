@@ -1,0 +1,19 @@
+.sidebar-container {
+  width: 10rem;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-section-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-section-buttons :first-child,
+.sidebar-section-buttons :last-child {
+  margin: 2rem;
+  width: 1rem;
+}
