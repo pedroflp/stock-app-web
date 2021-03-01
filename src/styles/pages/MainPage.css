@@ -1,0 +1,16 @@
+.mainpage-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mainpage-center-content {
+  width: 90%;
+  height: 100vh;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 3rem 2rem;
+
+  overflow: hidden;
+}

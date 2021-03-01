@@ -1,19 +1,40 @@
 .sidebar-container {
-  width: 10rem;
+  min-width: 6rem;
+  width: 6rem;
+  height: 100vh;
+
+  padding: 1.25rem 1.5rem;
   background: var(--white);
+  
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+
+  position: static;
+}
+
+.sidebar-section-title > h1 strong {
+  color: var(--blue);
+  font-weight: 900;
+  font-size: 2.5rem;
 }
 
 .sidebar-section-buttons {
   display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
+  color: var(--grey);
 }
 
 .sidebar-section-buttons :first-child,
 .sidebar-section-buttons :last-child {
-  margin: 2rem;
-  width: 1rem;
+  margin: 7px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

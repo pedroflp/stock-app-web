@@ -1,0 +1,51 @@
+.table-list-card {
+  background: var(--white);
+  padding: 2rem 2rem;
+  margin-bottom: 1rem;
+
+  border-radius: 7px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  overflow: hidden;
+}
+
+.table-list-info {
+  display: flex;
+  align-items: center;
+}
+
+.table-list-info span {
+  width: 10rem;
+  margin-right: 2rem;
+  color: #141736;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.table-list-info :first-child {
+  width: 18rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-list-info :last-child {
+  width: 15rem;
+}
+
+.table-list-card-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.edit-card {
+  color: var(--grey);
+  margin-right: 10px;
+}
+
+.delete-card {
+  color: var(--red);
+}

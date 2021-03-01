@@ -1,17 +1,21 @@
 import { Link } from 'react-router-dom';
 
-import { AiOutlineHome } from 'react-icons/ai';
-import { FiPackage } from 'react-icons/fi'
+import { AiOutlineHome, AiOutlinePlus } from 'react-icons/ai';
+import { FiPackage } from 'react-icons/fi';
+
+import '../styles/components/SideBar.css';
 
 export default function SideBar() {
   return ( 
-    <div className='sidebar-container'>
-      <h1><strong>H</strong>.</h1>
+    <aside className='sidebar-container'>
+      <div className='sidebar-section-title'>
+        <h1><strong>H</strong>.</h1>
+      </div>
 
       <div className='sidebar-section-buttons'>
-        <Link to='/'><AiOutlineHome /></Link>
-        <Link to='/produtos'><FiPackage /></Link>
+        <Link to='/estoque'><FiPackage size={26} /></Link>
+        <Link to='/cadastrar'><AiOutlinePlus size={26} /></Link>
       </div>
-    </div>
+    </aside>
   );
 }

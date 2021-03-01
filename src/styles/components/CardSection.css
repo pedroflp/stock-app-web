@@ -1,0 +1,42 @@
+.table-list-container {
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.table-title-list {
+  display: flex;
+  align-items: center;
+
+  padding: 0rem 2rem 2rem;
+}
+
+.table-title-list span {
+  width: 12rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--grey);
+}
+
+.table-title-list :first-child {
+  width: 20rem;
+}
+
+.table-title-list :last-child {
+  width: 15rem;
+}
+
+.table-card-list {
+  height: 70vh;
+  padding: 0 1rem 6rem 0;
+  overflow-y: scroll;
+}
+
+.table-card-list-alert {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem auto;
+  color: var(--gray-line);
+}

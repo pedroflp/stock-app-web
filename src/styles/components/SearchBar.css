@@ -1,0 +1,25 @@
+.search-bar-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+label {
+  padding: 0.85rem;
+  border-radius: 7px 0px 0px 7px;
+  background: var(--white);
+  color: var(--grey);
+}
+
+input {
+  width: 100%;
+  border: none;
+  border-radius: 0px 7px 7px 0px;
+  padding: 1rem 1rem 1rem 0rem;
+  color: var(--title);
+}
+
+input::placeholder {
+  color: var(--grey);
+}

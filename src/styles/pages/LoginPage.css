@@ -1,0 +1,126 @@
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+}
+
+.login-page-left {
+  max-width: 35%;
+  height: 100vh;
+  background: var(--blue);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.login-page-left h1 {
+  font-size: 40rem;
+  position: relative;
+  font-weight: 700;
+  color: var(--blue);
+  filter: brightness(1.05);
+}
+
+.login-page-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+  
+  margin: auto;
+  background: var(--white);
+}
+
+.login-page-right-card {
+  width: 80%;
+  margin: auto;
+  padding: 5rem;
+}
+
+.login-form h1, 
+.register-form h1 {
+  font-size: 4rem;
+}
+
+.login-form-inputs,
+.register-form-inputs {
+  margin-top: 5rem;
+}
+
+.login-page-right-card input {
+  background: var(--background);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 4rem;
+  border-radius: 8px;
+}
+
+.login-page-right-card input[type=submit] {
+  margin-top: 1rem;
+  background: var(--blue);
+  color: var(--white);
+  cursor: pointer;
+  outline: none;
+  transition: 0.4s ease;
+}
+
+.login-page-right-card input[type=submit]:hover {
+  filter: brightness(0.95);
+}
+
+.login-or-register {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto 3rem;
+}
+
+.login-or-register hr {
+  width: 100%;
+  border: 1px solid var(--gray-line);
+}
+
+.login-or-register span {
+  margin: -5px auto 0px;
+  position: absolute;
+  padding: 1rem; 
+  background: #fff;
+  color: var(--title);
+}
+
+.register-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 1rem;
+  font-weight: 500;
+  
+  border: none;
+  border-radius: 8px;
+
+  color: var(--title);
+  width: 100%;
+  height: 4rem;
+
+  outline: none;
+  transition: 0.4s ease;
+}
+
+.register-user:hover {
+  filter: brightness(0.96);
+}

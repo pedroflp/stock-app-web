@@ -2,18 +2,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter";
 }
 
 :root {
   --white: #fff;
+  --black: #000;
+  --grey: #9babc5;
   --background: #f2f3f5;
   --gray-line: #dcdde0;
   --text: #666666;
-  --text-highlight: #2398ca;
-  --title: #282f3f;
+  --title: #141736;
   --red: #e83f5b;
   --green: #4cd62b;
-  --blue: #2398ca; 
+  --blue: #46c0f5; 
 }
 
 body {
@@ -21,13 +23,13 @@ body {
   color: var (--text);
 }
 
-body, input, textarea, button {
-  font: 400 1rem "Inter";
+body, input, textarea {
+  font: 500 1rem "Inter";
+  outline: none;
 }
 
 button {
   cursor: pointer;
-  outline: none;
 }
 
 a {
@@ -45,4 +47,19 @@ a {
   html {
     font-size: 87.5%;
   }
+}
+
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-line);
+  border-radius: 100px;
+  
 }

@@ -1,0 +1,56 @@
+.create-product-container {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.create-product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+
+  padding: 2rem 2.5rem;
+  width: 60%;
+  margin: auto;
+}
+
+.create-product-title {
+  display: flex;
+  align-items: center;
+}
+
+.create-product-title h1 {
+  color: var(--title);
+  margin-left: 1rem;
+}
+
+.create-product-inputs {
+  margin-top: 2rem;
+}
+
+.create-product-inputs input {
+  padding: 1rem;
+  background: var(--background);
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  text-transform: capitalize;
+}
+
+.create-product-inputs input[type=submit] {
+  color: var(--black);
+  background: var(--blue);
+  height: 4rem;
+  width: 20rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  outline: none;
+  transition: 0.4s ease;
+}
+
+.create-product-inputs input[type=submit]:hover {
+  filter: brightness(1.1);
+}
