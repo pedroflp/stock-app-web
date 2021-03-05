@@ -19,26 +19,27 @@
 }
 
 .table-list-info span {
-  width: 10rem;
+  width: 7rem;
   margin-right: 2rem;
   color: #141736;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .table-list-info :first-child {
-  width: 18rem;
+  width: 17rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .table-list-info :last-child {
-  width: 15rem;
+  width: 11rem;
 }
 
 .table-list-card-buttons {
   display: flex;
   align-items: center;
+  margin-left: 2rem;
 }
 
 .edit-card {

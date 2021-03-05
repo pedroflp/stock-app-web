@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import { FiLogOut } from 'react-icons/fi';
-
 import '../styles/components/TopBar.css';
 
 export default function TopBar() {
@@ -12,8 +10,7 @@ export default function TopBar() {
       </div>
 
       <div className='topbar-buttons'>
-        <Link to='/cadastrar' className='register-product-button'>Cadastrar novo produto</Link>
-        <Link to='/' className='logout-button'><FiLogOut size={17} /></Link>
+        <Link to='/criar-produto' className='register-product-button'>Cadastrar novo produto</Link>
       </div>
     </div>
   );

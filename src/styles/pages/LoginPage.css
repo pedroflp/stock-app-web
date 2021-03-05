@@ -4,6 +4,7 @@
   align-items: center;
   align-content: center;
   margin: auto;
+  overflow: hidden;
 }
 
 .login-page-left {
@@ -17,6 +18,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 .login-page-left h1 {

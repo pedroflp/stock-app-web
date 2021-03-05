@@ -37,7 +37,6 @@
   background: var(--background);
   margin-bottom: 1rem;
   border-radius: 8px;
-  text-transform: capitalize;
 }
 
 .create-product-inputs input[type=submit] {

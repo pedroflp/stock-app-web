@@ -11,18 +11,19 @@
 }
 
 .table-title-list span {
-  width: 12rem;
+  width: 7rem;
+  margin-right: 2rem;
   font-size: 1rem;
   font-weight: 500;
   color: var(--grey);
 }
 
 .table-title-list :first-child {
-  width: 20rem;
+  width: 17rem;
 }
 
 .table-title-list :last-child {
-  width: 15rem;
+  width: 10rem;
 }
 
 .table-card-list {
@@ -32,11 +33,11 @@
 }
 
 .table-card-list-alert {
-  font-size: 2rem;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10rem auto;
+  margin: 7rem auto 0;
   color: var(--gray-line);
 }

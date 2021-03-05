@@ -1,0 +1,102 @@
+.profile-container {
+  width: 60%;
+  margin: auto;
+}
+
+.profile-card {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card-user-info {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.profile-card-user-info h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--title);
+}
+
+.profile-card-user-info h2 {
+  font-size: 1.7rem;
+  color: var(--title);
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.profile-card-userid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--background);
+  border-radius: 8px;
+}
+
+.profile-card-userid .copy-userid {
+  padding: 0.5rem 1.2rem;
+  background: var(--blue);
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  margin-left: 1rem;
+}
+
+.profile-card-user-info h3 {
+  font-size: 1rem;
+  color: var(--grey);
+}
+
+.profile-card-buttons {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: auto;
+}
+
+.delete-account {
+  width: 80%;
+  height: 4rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--red);
+  color: var(--white);
+  font-weight: 600;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.delete-account:hover {
+  filter: brightness(0.9);
+}
+
+.logout-button {
+  padding: 1rem;
+  margin-left: 0.5rem;
+  color: var(--red);
+  border: 2px solid var(--red);
+  border-radius: 7px;
+
+  transition: 0.4s ease;
+}
+
+.logout-button :first-child {
+  transition: 0.4s ease;
+}
+
+.logout-button:hover :first-child {
+  transform: translateX(2px);
+}

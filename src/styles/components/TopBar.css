@@ -40,18 +40,3 @@
 .register-product-button:hover {
   filter: brightness(1.1);
 }
-
-.logout-button {
-  padding: 0.7rem;
-  margin: 0 0.5rem;
-  color: var(--red);
-  border: 2px solid var(--red);
-  border-radius: 7px;
-
-  transition: 0.4s ease;
-}
-
-.logout-button:hover {
-  background: var(--red);
-  color: var(--black);
-}
