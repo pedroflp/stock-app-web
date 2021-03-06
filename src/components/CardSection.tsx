@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Moment from 'react-moment';
 
 import { HiPencil } from 'react-icons/hi';
@@ -12,10 +12,6 @@ import '../styles/components/CardStock.css';
 import '../styles/components/CardSection.css';
 
 
-interface ProductParams {
-  id: string,
-}
-
 interface Product {
   id: string,
   name: string,
@@ -25,27 +21,26 @@ interface Product {
 }
 
 export default function CardSection(this: any) {
-  const params = useParams<ProductParams>();
-  
   const [products, setProducts] = useState<Product[]>([]);
 
+  const history = useHistory();
+
   useEffect(() => {
-    api.get('estoque').then(response => {
-      setProducts(response.data);
-    })
+    (async () => {
+      await api.get('/estoque').then(response => {
+        setProducts(response.data);
+      })
+    })();
   }, []);
 
-  useEffect(() => { api.get(`estoque/${params.id}`) }, [params.id]);
-
-  async function handleDeleteProduct(e: any, product: any) {
-    e.preventDefault();
-
-    api.delete(`estoque/produto/${params.id}`).then(response => {
-      const delProduct = products.filter(product => params.id == product.id)
-      setProducts(delProduct);
-    })
+  async function handleEditProduct(id: string) {
+    history.push(`/editar/${id}`);
   }
 
+  async function handleDeleteProduct(id: string) {
+    await api.delete(`/estoque/${id}`);
+    setProducts(products);
+  }
 
   return (
       <div className='table-list-container'>
@@ -64,7 +59,7 @@ export default function CardSection(this: any) {
                 <div className='table-list-info'>
                   <span>{product.name}</span>
                   <span>{product.quantity}</span>
-                  <span>{product.price}</span>
+                  <span>R${product.price}</span>
                   <span>
                     <Moment format="HH:mm - DD/MM/YYYY">
                       {product.updated}
@@ -72,10 +67,17 @@ export default function CardSection(this: any) {
                   </span>
                 </div>
                 <div className='table-list-card-buttons'>
-                  <Link to={`/produtos/${product.id}`} className='edit-card'><HiPencil size={20} /></Link>
-                    <button
-                    onClick={e => handleDeleteProduct(e, product)}
-                    className='delete-card'><FiTrash size={20} /></button>
+                  <button 
+                  onClick={() => handleEditProduct(product.id)}
+                  className='edit-card'>
+                    <HiPencil size={20} />
+                  </button>
+                    
+                  <button
+                  onClick={() => handleDeleteProduct(product.id)}
+                  className='delete-card' style={{ border: 0, background: 'none' }}>
+                    <FiTrash size={20} />
+                  </button>
                 </div>
               </div>
             )
@@ -89,3 +91,5 @@ export default function CardSection(this: any) {
       </div>
   );
 }
+
+

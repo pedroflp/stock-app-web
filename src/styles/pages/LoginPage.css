@@ -67,19 +67,6 @@
   border-radius: 8px;
 }
 
-.login-page-right-card input[type=submit] {
-  margin-top: 1rem;
-  background: var(--blue);
-  color: var(--white);
-  cursor: pointer;
-  outline: none;
-  transition: 0.4s ease;
-}
-
-.login-page-right-card input[type=submit]:hover {
-  filter: brightness(0.95);
-}
-
 .login-or-register {
   position: relative;
 

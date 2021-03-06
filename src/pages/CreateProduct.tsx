@@ -11,7 +11,6 @@ export default function CreateProduct() {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
-  const [user_id, setUserId] = useState('');
 
   const history = useHistory();
 
@@ -23,7 +22,6 @@ export default function CreateProduct() {
     data.append('name', String(name));
     data.append('quantity', String(quantity));
     data.append('price', String(price));
-    data.append('user_id', String(user_id));
 
     await api.post('criar-produto', data);
     history.push('/estoque');
@@ -42,17 +40,15 @@ export default function CreateProduct() {
           <form onSubmit={handleSubmit}>
             <input 
             value={name}
-            onChange={e => setName(e.target.value)} id='name' type="text" placeholder='Nome do produto' required />
+            onChange={e => setName(e.target.value)} id='name' type="text"
+            placeholder='Nome do produto' required />
             <input 
             value={quantity}
             onChange={e => setQuantity(e.target.value)} id='quantity' type="number" placeholder='Quantidade' min='0' required />
             <input 
             value={price}
-            onChange={e => setPrice(e.target.value)} id='price' type="number" placeholder='Preço' min='0' required />
-            <input 
-            value={user_id}
-            onChange={e => setUserId(e.target.value)} id='user_id' type="text" placeholder='ID do usuário' min='0' required />
-
+            onChange={e => setPrice(e.target.value)} id='price' step="any" type="number" placeholder='Preço' min='0' required />
+           
             <br/>
             <br/>
             <button type="submit" className="register-product-button" >Cadastrar</button>
