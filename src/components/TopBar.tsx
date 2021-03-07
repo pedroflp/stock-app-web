@@ -22,7 +22,7 @@ export default function TopBar() {
       </div>
 
       <div className='topbar-buttons'>
-        <Link to='/criar-produto' className='register-product-button'>Cadastrar novo produto</Link>
+        <Link to={`/${params.username}/criar-produto`} className='register-product-button'>Cadastrar novo produto</Link>
       </div>
     </div>
   );

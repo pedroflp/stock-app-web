@@ -31,14 +31,8 @@ function AuthProvider({ children }) {
     setUserInformations(data);
     
     const {
-      user: { username },
-      token
-    } = userInformations;
-
-    await api.post('/login', token);
-
-    localStorage.setItem('token', JSON.stringify(token));
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+      user: { username, id },
+    } = data;
 
     setAuthenticated(true);
     history.push(`/${username}/estoque`);
@@ -48,8 +42,7 @@ function AuthProvider({ children }) {
   function handleLogout() {
     setAuthenticated(false);
 
-    localStorage.removeItem('token');
-    api.defaults.headers.Authorization = undefined;
+    localStorage.clear();
 
     history.push('/login');
     window.location.reload();

@@ -3,13 +3,14 @@ import { useHistory, useParams } from 'react-router-dom';
 import Moment from 'react-moment';
 
 import { HiPencil } from 'react-icons/hi';
-import { FiTrash } from 'react-icons/fi';
+import { FiSearch, FiTrash } from 'react-icons/fi';
 import { MdMoodBad } from 'react-icons/md';
 
 import api from '../services/api';
 
 import '../styles/components/CardStock.css';
 import '../styles/components/CardSection.css';
+import '../styles/components/SearchBar.css';
 
 interface ProfileParams {
   username: string,
@@ -34,6 +35,8 @@ export default function CardSection(this: any) {
   const params = useParams<ProfileParams>();
 
   const [userInformation, setUserInformation] = useState<User>();
+  
+  const [searchedProduct, setSearchedProduct] = useState('');
 
   const history = useHistory();
 
@@ -45,7 +48,7 @@ export default function CardSection(this: any) {
 
 
   async function handleEditProduct(id: string) {
-    history.push(`/editar/${id}`);
+    history.push(`/${params.username}/editar/${id}`);
   }
 
   async function handleDeleteProduct(id: string) {
@@ -55,6 +58,14 @@ export default function CardSection(this: any) {
 
   return (
     <div className='table-list-container'>
+
+        <div className='search-bar-container'> 
+          <label><FiSearch size={20} /> </label>
+          <input
+          onChange={e => setSearchedProduct(e.target.value)}
+          type="text" placeholder='Procurar por nome do produto' />
+        </div>  
+
         <div className='table-title-list'>
           <span>Nome do produto</span>
           <span>Quantidade</span>
@@ -64,7 +75,11 @@ export default function CardSection(this: any) {
 
         <div className='table-card-list'>
         { userInformation?.products.length ?
-          userInformation.products.map(product => {
+          userInformation.products.filter(product => {
+            if (product.name.toLowerCase().includes(searchedProduct.toLowerCase())) {
+              return product;
+            }
+          }).map(product => {
             return (
               <div key={product.id} className='table-list-card'>
                 <div className='table-list-info'>

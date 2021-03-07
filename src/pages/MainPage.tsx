@@ -1,5 +1,4 @@
 import CardSection from "../components/CardSection";
-import SearchBar from "../components/SearchBar";
 import SideBar from "../components/SideBar";
 import TopBar from "../components/TopBar";
 
@@ -16,7 +15,6 @@ export default function MainPage() {
       <div className='mainpage-center-content'>
         <TopBar />
 
-        <SearchBar />
         <CardSection />
       </div>
     </div>

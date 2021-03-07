@@ -9,6 +9,7 @@ import ButtonGoBack from '../components/ButtonGoBack';
 
 interface ProductParams {
   id: string,
+  username: string,
 }
 
 interface Product {
@@ -20,16 +21,17 @@ interface Product {
 
 export default function EditProduct() {
   const params = useParams<ProductParams>();
+
   const [product, setProduct] = useState<Product>()
 
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
 
   useEffect(() => {
-    api.get(`editar/${params.id}`).then(response => {
+    api.get(`/${params.username}/editar/${params.id}`).then(response => {
       setProduct(response.data);
     })
-  }, [params.id]);
+  }, [params.username]);
 
   const history = useHistory();
 
@@ -38,13 +40,23 @@ export default function EditProduct() {
 
     const data = new FormData();
 
-    data.append('quantity', String(quantity));
-    data.append('price', String(price));
+    if (quantity == "" && price == "") {
+      
+    } else
+    if (quantity == "") {
+      data.append('price', String(price));
+    } else
+    if (price == "") {
+      data.append('quantity', String(quantity));
+    } else {
+      
+      data.append('quantity', String(quantity));
+      data.append('price', String(price));
+    }
 
-    console.log(params.id)
     console.log({ quantity, price })
 
-    await api.put(`editar/${params.id}`, data);
+    await api.put(`/${params.username}/editar/${params.id}`, data);
 
     setProduct(product);
     history.goBack();
