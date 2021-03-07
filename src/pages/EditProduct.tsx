@@ -1,11 +1,12 @@
+import { FormEvent, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
+import api from '../services/api';
+
 import SideBar from "../components/SideBar";
+import ButtonGoBack from '../components/ButtonGoBack';
 
 import '../styles/pages/CreateProduct.css';
-import { FormEvent, useEffect, useState } from 'react';
-import api from '../services/api';
-import ButtonGoBack from '../components/ButtonGoBack';
 
 interface ProductParams {
   id: string,
@@ -74,13 +75,13 @@ export default function EditProduct() {
         <div className='create-product-inputs'>
 
          <form onSubmit={handleEditSubmit}>
-           <label>Quantidade anterior:</label>
+          <label>Quantidade anterior:</label>
           <input 
             value={quantity} 
             onChange={e => setQuantity(e.target.value)} type="number" id="quantity"
             placeholder={`${product?.quantity}`} min='0' />
 
-            <label>Quantidade Preço:</label>
+          <label>Preço anterior:</label>
           <input 
             value={price} 
             onChange={e => setPrice(e.target.value)} type="number" id="price"
