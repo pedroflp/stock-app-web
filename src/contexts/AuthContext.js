@@ -1,15 +1,18 @@
 import { createContext, useState, useEffect } from "react";
 import { createBrowserHistory } from 'history';
-import api from "../services/api";
+
+import ReactLoading from 'react-loading';
+
+import api from '../services/api';
 
 const Context = createContext();
+const history = createBrowserHistory();
 
 function AuthProvider({ children }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [userInformations, setUserInformations] = useState({});
   
-  const history = createBrowserHistory();
-
   useEffect(() => {
     const token = localStorage.getItem('token');
 
@@ -18,20 +21,28 @@ function AuthProvider({ children }) {
       setAuthenticated(true);
     }
 
-    history.goBack();
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
   }, []);
 
-  async function handleLogin() {
-    const { data: { token } } = await api.post('/login');
+  async function handleLogin(data) {
+    setUserInformations(data);
+    
+    const {
+      user: { username },
+      token
+    } = userInformations;
+
+    await api.post('/login', token);
 
     localStorage.setItem('token', JSON.stringify(token));
     api.defaults.headers.Authorization = `Bearer ${token}`;
-    
-    console.log(token);
 
     setAuthenticated(true);
-    history.push('/estoque');
+    history.push(`/${username}/estoque`);
+    window.location.reload();
   }
 
   function handleLogout() {
@@ -40,16 +51,20 @@ function AuthProvider({ children }) {
     localStorage.removeItem('token');
     api.defaults.headers.Authorization = undefined;
 
-    history.push('/');
+    history.push('/login');
     window.location.reload();
   }
 
+  const handleGoBack = () => {
+    history.goBack();
+  }
+
   if (loading) {
-    return <h1>Carregando...</h1>
+    return  <ReactLoading type={'cylon'} color={'var(--blue)'} className="loading-component" height={'10%'} width={'10%'} />
   }
 
   return (
-    <Context.Provider value={{ authenticated, handleLogin, handleLogout }}>
+    <Context.Provider value={{ authenticated, handleLogin, handleLogout, userInformations, handleGoBack }}>
       {children}
     </Context.Provider>
   )

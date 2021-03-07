@@ -1,18 +1,19 @@
-import { Link, useHistory } from 'react-router-dom';
-import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { FormEvent, useState } from 'react';
+import { createBrowserHistory } from 'history';
+
+import api from '../services/api';
 
 import SideBar from "../components/SideBar";
-
 import '../styles/pages/CreateProduct.css';
-import { FormEvent, useState } from 'react';
-import api from '../services/api';
+import ButtonGoBack from '../components/ButtonGoBack';
 
 export default function CreateProduct() {
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
+  const [user_id, setUser_id] = useState('');
 
-  const history = useHistory();
+  const history = createBrowserHistory();
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -22,10 +23,12 @@ export default function CreateProduct() {
     data.append('name', String(name));
     data.append('quantity', String(quantity));
     data.append('price', String(price));
+    data.append('user_id', String(user_id));
 
     await api.post('criar-produto', data);
-    history.push('/estoque');
+    history.goBack();
   }
+
 
   return (
     <div className='create-product-container'>
@@ -33,7 +36,7 @@ export default function CreateProduct() {
       
       <div className='create-product-card'>
         <div className='create-product-title' >
-          <Link to='/estoque'><AiOutlineArrowLeft size={20} /></Link>
+          <ButtonGoBack />
           <h1>Cadastrar novo produto</h1>
         </div>
         <div className='create-product-inputs'>
@@ -48,6 +51,9 @@ export default function CreateProduct() {
             <input 
             value={price}
             onChange={e => setPrice(e.target.value)} id='price' step="any" type="number" placeholder='Preço' min='0' required />
+             <input 
+            value={user_id}
+            onChange={e => setUser_id(e.target.value)} id='user_id' step="any" type="text" placeholder='ID de Usuário' min='0' required />
            
             <br/>
             <br/>

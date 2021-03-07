@@ -1,5 +1,5 @@
-import { FormEvent, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { FormEvent, useContext, useState } from "react";
+import { Context } from "../contexts/AuthContext";
 import api from "../services/api";
 
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
@@ -7,23 +7,26 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import '../styles/components/PasswordInput.css';
 
 export default function LoginForm() {
+  const { handleLogin } = useContext(Context);
+  
   const [isHidden, setIsHidden] = useState(true);
-
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  const history = useHistory();
+  
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const data = new FormData();
+    await api.post('login', {
+      username: username,
+      password: password
 
-    data.append('username', String(username));
-    data.append('password', String(password));
-
-    await api.post('login', data);
-    history.push('/estoque');
+    }).then(response => {
+      const data = response.data;
+      handleLogin(data);
+    });
+    
   }
 
   function showPassword() {
@@ -58,7 +61,7 @@ export default function LoginForm() {
             </label>
           </div>
 
-          <button type="submit" style={{ width: '100%', fontSize: '1rem', height: '4rem' }} className="register-product-button">Entrar</button>
+          <button onClick={handleSubmit} type="submit" style={{ width: '100%', fontSize: '1rem', height: '4rem' }} className="register-product-button">Entrar</button>
         </form>
       </div>
     </div>

@@ -25,7 +25,7 @@ export default function ProfilePage() {
 
   const [profile, setProfile] = useState<Profile>();
 
-  const { handleLogout } = useContext(Context);
+  const { handleLogout, userInformations } = useContext(Context);
 
   useEffect(() => {
     api.get(`/perfil/${params.username}`).then(response => {
@@ -40,10 +40,10 @@ export default function ProfilePage() {
         <div className='profile-container'>
         <div className="profile-card">
             <div className="profile-card-user-info">
-              <h1>{profile?.name}</h1>
-              <h2>{profile?.email}</h2>
+              <h1>{userInformations.user.username}</h1>
+              <h2>{userInformations.user.email}</h2>
               <div className="profile-card-userid">
-                <h3>{profile?.id}</h3>
+                <h3>{userInformations.user.id}</h3>
                 <button className="copy-userid">Copiar ID</button>
               </div>
             </div>

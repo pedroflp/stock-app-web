@@ -38,3 +38,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.logout-button {
+  color: var(--red);
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.logout-button:hover {
+  transform: translateX(2px);
+}

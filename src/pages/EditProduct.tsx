@@ -1,11 +1,11 @@
-import { Link, useHistory, useParams } from 'react-router-dom';
-import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { useHistory, useParams } from 'react-router-dom';
 
 import SideBar from "../components/SideBar";
 
 import '../styles/pages/CreateProduct.css';
 import { FormEvent, useEffect, useState } from 'react';
 import api from '../services/api';
+import ButtonGoBack from '../components/ButtonGoBack';
 
 interface ProductParams {
   id: string,
@@ -14,8 +14,8 @@ interface ProductParams {
 interface Product {
   id: string,
   name: string,
-  quantity: number,
-  price: number,
+  quantity: string,
+  price: string,
 }
 
 export default function EditProduct() {
@@ -24,7 +24,7 @@ export default function EditProduct() {
 
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
- 
+
   useEffect(() => {
     api.get(`editar/${params.id}`).then(response => {
       setProduct(response.data);
@@ -47,7 +47,7 @@ export default function EditProduct() {
     await api.put(`editar/${params.id}`, data);
 
     setProduct(product);
-    history.push('/estoque');
+    history.goBack();
   }
 
   return (
@@ -56,21 +56,23 @@ export default function EditProduct() {
       
       <div className='create-product-card'>
         <div className='create-product-title' >
-          <Link to='/estoque'><AiOutlineArrowLeft size={20} /></Link>
-          <h1>{product?.name}</h1>
+        <ButtonGoBack />
+        <h1>{product?.name}</h1>
         </div>
         <div className='create-product-inputs'>
 
          <form onSubmit={handleEditSubmit}>
+           <label>Quantidade anterior:</label>
           <input 
             value={quantity} 
             onChange={e => setQuantity(e.target.value)} type="number" id="quantity"
-            placeholder={`Quantidade anterior: ${product?.quantity}`} min='0' />
-            
+            placeholder={`${product?.quantity}`} min='0' />
+
+            <label>Quantidade Preço:</label>
           <input 
             value={price} 
             onChange={e => setPrice(e.target.value)} type="number" id="price"
-            placeholder={`Preço anterior: R$${product?.price}`} step="any" min='0' />
+            placeholder={`R$${product?.price}`} step="any" min='0' />
           
           <br/>
           <br/>

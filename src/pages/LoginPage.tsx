@@ -11,10 +11,10 @@ import '../styles/pages/LoginPage.css';
 
 export default function LoginPage() {
   const { authenticated } = useContext(Context);
-
-  console.log(authenticated)
-
   const [isRegister, setIsRegister] = useState(false);
+
+  console.log(authenticated);
+
 
   function handleRegisterUser() {
     setIsRegister(true);
