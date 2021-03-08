@@ -85,6 +85,8 @@ export default function CardSection() {
           userInformation.products.filter(product => {
             if (product.name.toLowerCase().includes(searchedProduct.toLowerCase())) {
               return product;
+            } else {
+              return null;
             }
           }).map(product => {
             return (

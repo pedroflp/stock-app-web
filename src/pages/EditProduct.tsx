@@ -32,7 +32,7 @@ export default function EditProduct() {
     api.get(`/${params.username}/editar/${params.id}`).then(response => {
       setProduct(response.data);
     })
-  }, [params.username]);
+  }, [params.username, params.id]);
 
   const history = useHistory();
 
