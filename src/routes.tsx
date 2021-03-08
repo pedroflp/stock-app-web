@@ -6,6 +6,7 @@ import CreateProduct from './pages/CreateProduct';
 import EditProduct from './pages/EditProduct';
 
 export default function Routes() {
+  
   return (
     <Switch>
       <Route path='/' component={LoginPage} exact />

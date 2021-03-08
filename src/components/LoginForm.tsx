@@ -14,7 +14,6 @@ export default function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 

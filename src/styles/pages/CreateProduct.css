@@ -35,6 +35,10 @@
 .create-product-inputs input {
   padding: 1rem;
   background: var(--background);
-  margin-bottom: 1rem;
+  margin: 0.5rem auto;
   border-radius: 8px;
+}
+
+.create-product-inputs span {
+  color: var(--grey);
 }

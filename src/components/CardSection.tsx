@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
 import Moment from 'react-moment';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 import { HiPencil } from 'react-icons/hi';
 import { FiSearch, FiTrash } from 'react-icons/fi';
-import { MdMoodBad } from 'react-icons/md';
+import { GoPackage } from 'react-icons/go';
 
 import api from '../services/api';
 
@@ -25,37 +26,43 @@ interface Product {
 }
 
 interface User {
+  id: string,
   email: string,
   products: Product[],
   username: string,
 }
 
+const history = createBrowserHistory();
 
-export default function CardSection(this: any) {
+export default function CardSection() {
+
   const params = useParams<ProfileParams>();
-
   const [userInformation, setUserInformation] = useState<User>();
-  
-  const [searchedProduct, setSearchedProduct] = useState('');
 
-  const history = useHistory();
+  const [searchedProduct, setSearchedProduct] = useState('');
+  
+  if (params.username.length < 35) {
+    history.push('/login')
+    window.location.reload();
+  }
 
   useEffect(() => {
     api.get(`/${params.username}/estoque`).then(response => {
-    setUserInformation(response.data);
+      setUserInformation(response.data); 
     });
   }, [params.username]);
-
-
+  
+  
   async function handleEditProduct(id: string) {
     history.push(`/${params.username}/editar/${id}`);
+    window.location.reload();
   }
-
+  
   async function handleDeleteProduct(id: string) {
     await api.delete(`/estoque/${id}`);
     window.location.reload();
   }
-
+  
   return (
     <div className='table-list-container'>
 
@@ -109,9 +116,9 @@ export default function CardSection(this: any) {
             )
           }) : 
           <div className='table-card-list-alert'>
-          <MdMoodBad size={80} />
-          <h1>Você não tem nenhum produto cadastrado!</h1>
-        </div>
+            <GoPackage size={100} />
+            <h1>Você não tem nenhum produto cadastrado!</h1>
+          </div>
         } 
         </div>
       </div>

@@ -47,7 +47,6 @@ export default function CreateProduct() {
     history.goBack();
   }
 
-
   return (
     <div className='create-product-container'>
       <SideBar />

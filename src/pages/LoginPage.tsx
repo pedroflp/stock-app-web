@@ -1,8 +1,6 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-
-import { Context } from '../contexts/AuthContext';
 
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
@@ -10,11 +8,7 @@ import RegisterForm from '../components/RegisterForm';
 import '../styles/pages/LoginPage.css';
 
 export default function LoginPage() {
-  const { authenticated } = useContext(Context);
   const [isRegister, setIsRegister] = useState(false);
-
-  console.log(authenticated);
-
 
   function handleRegisterUser() {
     setIsRegister(true);

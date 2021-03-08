@@ -41,21 +41,17 @@ export default function EditProduct() {
 
     const data = new FormData();
 
-    if (quantity == "" && price == "") {
-      
+    if (quantity === "" && price === "") {
     } else
-    if (quantity == "") {
+    if (quantity === "") {
       data.append('price', String(price));
     } else
-    if (price == "") {
+    if (price === "") {
       data.append('quantity', String(quantity));
     } else {
-      
       data.append('quantity', String(quantity));
       data.append('price', String(price));
     }
-
-    console.log({ quantity, price })
 
     await api.put(`/${params.username}/editar/${params.id}`, data);
 
@@ -75,17 +71,20 @@ export default function EditProduct() {
         <div className='create-product-inputs'>
 
          <form onSubmit={handleEditSubmit}>
-          <label>Quantidade anterior:</label>
+          <span>Quantidade anterior:</span>
           <input 
             value={quantity} 
             onChange={e => setQuantity(e.target.value)} type="number" id="quantity"
             placeholder={`${product?.quantity}`} min='0' />
 
-          <label>Preço anterior:</label>
+          <br/>
+          <br/>
+
+          <span>Preço anterior:</span>
           <input 
             value={price} 
             onChange={e => setPrice(e.target.value)} type="number" id="price"
-            placeholder={`R$${product?.price}`} step="any" min='0' />
+            placeholder={`R$${product?.price}`} step="0.01" min='0' />
           
           <br/>
           <br/>

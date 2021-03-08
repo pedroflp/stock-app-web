@@ -3,8 +3,6 @@ import { createBrowserHistory } from 'history';
 
 import ReactLoading from 'react-loading';
 
-import api from '../services/api';
-
 const Context = createContext();
 const history = createBrowserHistory();
 
@@ -14,12 +12,6 @@ function AuthProvider({ children }) {
   const [userInformations, setUserInformations] = useState({});
   
   useEffect(() => {
-    const token = localStorage.getItem('token');
-
-    if (token) {
-      api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
-      setAuthenticated(true);
-    }
 
     setTimeout(() => {
       setLoading(false);
@@ -29,14 +21,13 @@ function AuthProvider({ children }) {
 
   async function handleLogin(data) {
     setUserInformations(data);
-    
     const {
-      user: { username, id },
+      user: { id },
     } = data;
 
-    setAuthenticated(true);
-    history.push(`/${username}/estoque`);
+    history.push(`/${id}/estoque`);
     window.location.reload();
+    setAuthenticated(true);
   }
 
   function handleLogout() {
