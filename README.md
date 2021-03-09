@@ -1,4 +1,4 @@
-<h1 align="center">Stock Controller - Front End</h1>
+<h1 align="center">Stock APP - Front End</h1>
 <p align="center">📦 Um app para controlar a quantidade e preços dos produtos de seu estoque</p>
 
 -------------------
