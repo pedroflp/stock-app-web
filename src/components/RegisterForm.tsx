@@ -26,6 +26,7 @@ export default function RegisterForm() {
 
     await api.post('registrar', data);
     history.push('/login');
+    window.location.reload();
   }
 
   function showPassword() {
