@@ -8,13 +8,12 @@
 **Versão da aplicação:**
 
 ![React](https://img.shields.io/static/v1?label=&message=1.0.2&color=000&style=for-the-badge&logo=react)
-![Node](https://img.shields.io/static/v1?label=&message=1.0.0&color=000&style=for-the-badge&logo=node.js)
+
 
 **Tecnologias utilizadas:**
 
 ![React](https://img.shields.io/static/v1?label=Front-end&message=ReactJS&color=61DAFB&style=for-the-badge&logo=react)
-![Node](https://img.shields.io/static/v1?label=Back-end&message=Node.js&color=339933&style=for-the-badge&logo=node.js)
-![Database](https://img.shields.io/static/v1?label=Data-base&message=SQLite&color=003B57&style=for-the-badge&logo=sqlite)
+![Typscript](https://img.shields.io/static/v1?label=Back-end&message=Typescript&color=3178C6&style=for-the-badge&logo=typescript)
 
 
 ## Acessar o app:
@@ -35,3 +34,7 @@ Password:
 ```sh
 acctest123
 ```
+-------------------
+
+## Repositório do Back-end
+[StockAPI](https://github.com/pedroflp/stock-controller-backend)
