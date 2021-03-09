@@ -13,7 +13,7 @@
 **Tecnologias utilizadas:**
 
 ![React](https://img.shields.io/static/v1?label=Front-end&message=ReactJS&color=61DAFB&style=for-the-badge&logo=react)
-![Typscript](https://img.shields.io/static/v1?label=Back-end&message=Typescript&color=3178C6&style=for-the-badge&logo=typescript)
+![Typscript](https://img.shields.io/static/v1?label=Front-end&message=Typescript&color=3178C6&style=for-the-badge&logo=typescript)
 
 
 ## Acessar o app:
