@@ -25,7 +25,7 @@ export default function RegisterForm() {
     data.append('password', String(password));
 
     await api.post('registrar', data);
-    history.push('/estoque');
+    history.goBack();
   }
 
   function showPassword() {
