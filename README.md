@@ -32,7 +32,7 @@ acctest
 ```
 Password:
 ```sh
-acctest123
+acctest
 ```
 -------------------
 
