@@ -1,7 +1,6 @@
 import { FormEvent, useContext, useState } from "react";
 
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import { useHistory } from "react-router-dom";
 import { Context } from "../contexts/AuthContext";
 import api from "../services/api";
 
@@ -15,8 +14,6 @@ export default function RegisterForm() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const history = useHistory();
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();

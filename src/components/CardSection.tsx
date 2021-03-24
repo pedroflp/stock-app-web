@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import { HiPencil } from 'react-icons/hi';
-import { FiSearch, FiTrash } from 'react-icons/fi';
+import { FiSearch } from 'react-icons/fi';
 import { GoPackage } from 'react-icons/go';
 
 import api from '../services/api';
