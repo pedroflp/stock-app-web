@@ -7,7 +7,7 @@
 
 **Versão da aplicação:**
 
-![React](https://img.shields.io/static/v1?label=&message=1.0.2&color=000&style=for-the-badge&logo=react)
+![React](https://img.shields.io/static/v1?label=&message=1.0.3&color=000&style=for-the-badge&logo=react)
 
 
 **Tecnologias utilizadas:**
@@ -28,11 +28,11 @@
 
 Login:
 ```sh
-acctest
+test
 ```
 Password:
 ```sh
-acctest
+test
 ```
 -------------------
 
