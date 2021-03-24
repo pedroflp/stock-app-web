@@ -57,22 +57,35 @@ export default function CardSection() {
     history.push(`/${params.username}/editar/${id}`);
     window.location.reload();
   }
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const checkScroll = () => {
+      if (!isScrolled && (window.pageYOffset > 550 && window.pageYOffset < 750)){
+        setIsScrolled(true);
+      }
+    }
+    window.addEventListener('scroll', checkScroll);
+  }, [setIsScrolled]);
     
   return (
     <div className='table-list-container'>
 
-        <div className='search-bar-container'> 
-          <label><FiSearch size={20} /> </label>
-          <input
-          onChange={e => setSearchedProduct(e.target.value)}
-          type="text" placeholder='Procurar por nome do produto' />
-        </div>  
+        <div className='table-list-topbar'>
+          <div className='search-bar-container'> 
+            <label><FiSearch size={20} /> </label>
+            <input
+            onChange={e => setSearchedProduct(e.target.value)}
+            type="text" placeholder='Procurar por nome do produto' />
+          </div>  
 
-        <div className='table-title-list'>
-          <span>Nome do produto</span>
-          <span>Quantidade</span>
-          <span>Preço</span>
-          <span>Última alteração</span>
+          <div className='table-title-list'>
+            <span>Nome do produto</span>
+            <span>Quantidade</span>
+            <span>Preço</span>
+            <span>Última alteração</span>
+          </div>
         </div>
 
         <div className='table-card-list'>

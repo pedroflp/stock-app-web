@@ -11,6 +11,28 @@
   display: flex;
   flex-direction: column;
   padding: 0rem 3rem 2rem;
+  overflow-y: scroll;
+}
 
-  overflow: hidden;
+.toogleshow-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+  position: relative;
+}
+
+.toogleshow-button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--blue);
+  color: rgb(255, 255, 255);
+  border: none;
+  position: absolute;
+}
+
+.toogleshow-button hr {
+  border-color: black;
 }

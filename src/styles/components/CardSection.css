@@ -1,6 +1,11 @@
 .table-list-container {
   width: 100%;
   margin: 1rem auto;
+  position: relative;
+}
+
+.table-list-topbar {
+  background: var(--background);
 }
 
 .table-title-list {
@@ -24,12 +29,6 @@
 
 .table-title-list :last-child {
   width: 10rem;
-}
-
-.table-card-list {
-  height: 70vh;
-  padding: 0 1rem 6rem 0;
-  overflow-y: scroll;
 }
 
 .table-card-list-alert {

@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter";
+  transition: 0.5s ease;
 }
 
 :root {
@@ -76,4 +77,5 @@ a {
   height: 100vh;
   position: absolute;
   backdrop-filter: blur(10px);
+  z-index: 99;
 }
