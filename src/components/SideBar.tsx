@@ -4,7 +4,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 
 import { Context } from '../contexts/AuthContext';
 
-import { FiLogOut, FiPackage, FiSearch } from 'react-icons/fi';
+import { FiLogOut, FiPackage } from 'react-icons/fi';
 
 import api from '../services/api';
 

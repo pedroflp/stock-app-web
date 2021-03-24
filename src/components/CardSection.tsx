@@ -58,17 +58,6 @@ export default function CardSection() {
     window.location.reload();
   }
 
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const checkScroll = () => {
-      if (!isScrolled && (window.pageYOffset > 550 && window.pageYOffset < 750)){
-        setIsScrolled(true);
-      }
-    }
-    window.addEventListener('scroll', checkScroll);
-  }, [setIsScrolled]);
-    
   return (
     <div className='table-list-container'>
 
