@@ -21,7 +21,7 @@
 .table-list-info span {
   width: 7rem;
   margin-right: 2rem;
-  color: #141736;
+  color: var(--title);
   font-size: 1rem;
   font-weight: 700;
 }
@@ -38,13 +38,11 @@
 
 .table-list-card-buttons {
   display: flex;
-  align-items: center;
-  margin-left: 2rem;
+  justify-content: flex-end;
 }
 
 .edit-card {
-  color: var(--grey);
-  margin-right: 10px;
+  color: var(--gray-line);
 }
 
 .delete-card {

@@ -22,16 +22,16 @@
 
 .register-product-button{
   background: var(--blue);
-  color: var(--black);
+  color: var(--white);
   border: none;
-  width: 14rem;
-  height: 3.25rem;
+  width: 20rem;
+  height: 4rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 500;
   border-radius: 7px;
   transition: 0.4s ease;

@@ -57,12 +57,7 @@ export default function CardSection() {
     history.push(`/${params.username}/editar/${id}`);
     window.location.reload();
   }
-  
-  async function handleDeleteProduct(id: string) {
-    await api.delete(`/estoque/${id}`);
-    window.location.reload();
-  }
-  
+    
   return (
     <div className='table-list-container'>
 
@@ -105,13 +100,7 @@ export default function CardSection() {
                   <button 
                   onClick={() => handleEditProduct(product.id)}
                   className='edit-card' style={{ border: 0, background: 'none' }}>
-                    <HiPencil size={20} />
-                  </button>
-                    
-                  <button
-                  onClick={() => handleDeleteProduct(product.id)}
-                  className='delete-card' style={{ border: 0, background: 'none' }}>
-                    <FiTrash size={20} />
+                    <HiPencil size={23} />
                   </button>
                 </div>
               </div>

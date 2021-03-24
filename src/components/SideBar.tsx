@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { Context } from '../contexts/AuthContext';
 
-import { FiLogOut } from 'react-icons/fi';
+import { FiLogOut, FiPackage } from 'react-icons/fi';
 
 import '../styles/components/SideBar.css';
 
@@ -12,7 +12,7 @@ export default function SideBar() {
   return ( 
     <aside className='sidebar-container'>
       <div className='sidebar-section-title'>
-        <h1><strong>H</strong>.</h1>
+        <h1><FiPackage size={40} /></h1>
       </div>
 
       {/* <div className='sidebar-section-buttons'>

@@ -1,0 +1,68 @@
+.edit-product-container {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.edit-product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+
+  padding: 2rem 2.5rem;
+  width: 60%;
+  margin: auto;
+}
+
+.edit-product-title {
+  display: flex;
+  align-items: center;
+}
+
+.edit-product-title h1 {
+  color: var(--title);
+  margin-left: 1rem;
+}
+
+.edit-product-inputs {
+  margin-top: 2rem;
+}
+
+.edit-product-inputs input {
+  padding: 1rem;
+  background: var(--background);
+  margin: 0.5rem auto;
+  border-radius: 8px;
+}
+
+.edit-product-inputs span {
+  color: var(--grey);
+}
+
+.delete-card {
+  margin-left: 1rem;
+  border: 2px solid var(--red);
+  border-radius: 8px;
+  padding: 1rem;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  width: 10rem;
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s ease;
+}
+
+.delete-card:hover {
+  background: var(--red);
+  color: var(--black);
+}

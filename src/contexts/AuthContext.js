@@ -1,7 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 import { createBrowserHistory } from 'history';
 
-import ReactLoading from 'react-loading';
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Context = createContext();
 const history = createBrowserHistory();
@@ -43,8 +44,17 @@ function AuthProvider({ children }) {
     history.goBack();
   }
 
-  if (loading) {
-    return  <ReactLoading type={'cylon'} color={'var(--blue)'} className="loading-component" height={'10%'} width={'10%'} />
+  while (loading) {
+    return  (
+      <>
+  
+      <Loader type={'TailSpin'} color={'var(--blue)'} className="loading-component" height={'10%'} width={'10%'} />
+      <Context.Provider value={{ authenticated, handleLogin, handleLogout, userInformations, handleGoBack }}>
+        {children}
+      </Context.Provider>
+
+      </>
+    )
   }
 
   return (

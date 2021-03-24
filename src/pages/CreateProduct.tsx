@@ -7,6 +7,7 @@ import SideBar from "../components/SideBar";
 import '../styles/pages/CreateProduct.css';
 import ButtonGoBack from '../components/ButtonGoBack';
 import { useParams } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 interface ProfileParams {
   username: string,
@@ -49,6 +50,7 @@ export default function CreateProduct() {
 
   return (
     <div className='create-product-container'>
+      <Helmet title="StockAPP | Cadastrando..." />
       <SideBar />
       
       <div className='create-product-card'>

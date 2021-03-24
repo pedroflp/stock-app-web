@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import CardSection from "../components/CardSection";
 import SideBar from "../components/SideBar";
 import TopBar from "../components/TopBar";
@@ -10,6 +11,7 @@ export default function MainPage() {
 
   return (
     <div className='mainpage-container'>
+      <Helmet title="StockAPP | Estoque" />
       <SideBar />
       
       <div className='mainpage-center-content'>

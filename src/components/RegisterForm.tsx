@@ -1,12 +1,15 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useHistory } from "react-router-dom";
+import { Context } from "../contexts/AuthContext";
 import api from "../services/api";
 
 import '../styles/components/PasswordInput.css';
 
 export default function RegisterForm() {
+  const { handleLogin } = useContext(Context);
+
   const [isHidden, setIsHidden] = useState(true);
 
   const [username, setUsername] = useState('');
@@ -25,7 +28,15 @@ export default function RegisterForm() {
     data.append('password', String(password));
 
     await api.post('registrar', data);
-    history.push('/estoque');
+
+    await api.post('login', {
+      username: username,
+      password: password
+
+    }).then(response => {
+      const data = response.data;
+      handleLogin(data);
+    });
   }
 
   function showPassword() {

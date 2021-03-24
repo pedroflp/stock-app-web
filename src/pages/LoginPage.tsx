@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import Helmet from 'react-helmet';
 
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { GoPackage } from 'react-icons/go';
 
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
@@ -19,9 +21,19 @@ export default function LoginPage() {
   }
 
   return (
+    <>
+
+    <Helmet title="StockAPP | Login" />
+    
     <div className='login-page-container'>
       <div className='login-page-left'>
-        <h1>H</h1>
+      <GoPackage size={700} 
+        style={{
+          color: 'var(--blue)',
+          filter: 'brightness(1.07)', 
+          transform: 'translateX(-50px) rotate(-10deg)'
+        }} 
+      />
       </div>
       
       <div className='login-page-right'>
@@ -51,5 +63,7 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+
+    </>
   );
 }
