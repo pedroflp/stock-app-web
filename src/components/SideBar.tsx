@@ -1,28 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AiOutlinePlus } from 'react-icons/ai';
 
 import { Context } from '../contexts/AuthContext';
 
 import { FiLogOut, FiPackage } from 'react-icons/fi';
 
-import api from '../services/api';
-
 import '../styles/components/SideBar.css';
 
-interface ProfileParams {
-  id: string,
-}
-
-interface User {
-  id: string,
-}
-
 export default function SideBar() {
-  const params = useParams<ProfileParams>();
-  const [user, setUser] = useState<User>()
-  
-  const { handleLogout, userId } = useContext(Context);
+  const { handleLogout } = useContext(Context);
 
   const id = localStorage.getItem('uId')
 

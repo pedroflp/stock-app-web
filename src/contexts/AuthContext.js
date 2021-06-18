@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { createBrowserHistory } from 'history';
 
 import Loader from "react-loader-spinner";
@@ -19,7 +19,6 @@ function AuthProvider({ children }) {
     const {
       user: { id },
     } = data;
-    setLoading(true)
     history.push(`/${id}/estoque`);
     window.location.reload();
     setAuthenticated(true);
@@ -52,7 +51,8 @@ function AuthProvider({ children }) {
         }} />
       </>
     }
-    <Context.Provider value={{ 
+    <Context.Provider value={{
+      loading, 
       callLoading, 
       authenticated,
 

@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { useContext } from 'react';
 import { useState } from 'react';
 import Helmet from 'react-helmet';
 
@@ -9,14 +7,11 @@ import AlertPopup from '../components/AlertPopup';
 
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
-import { Context } from '../contexts/AuthContext';
 
 import '../styles/pages/LoginPage.css';
 
 export default function LoginPage() {
   const [isRegister, setIsRegister] = useState(false);
-
-  const { handleLogin } = useContext(Context)
 
   function handleRegisterUser() {
     setIsRegister(true);

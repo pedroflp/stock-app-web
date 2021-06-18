@@ -1,18 +1,8 @@
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import api from '../services/api';
+import { Link } from 'react-router-dom';
 
 import { AiOutlinePlus } from 'react-icons/ai';
 
 import '../styles/components/TopBar.css';
-
-interface ProfileParams {
-  username: string,
-}
-
-interface User {
-  username: string,
-}
 
 export default function TopBar() {
   const id = localStorage.getItem('uId')

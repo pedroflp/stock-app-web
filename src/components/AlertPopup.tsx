@@ -1,5 +1,4 @@
-import { FiAlertOctagon, FiAlertTriangle } from "react-icons/fi";
-import { AiOutlineInfo } from "react-icons/ai";
+import { FiAlertTriangle } from "react-icons/fi";
 
 import '../styles/components/AlertPopup.css';
 
@@ -21,7 +20,7 @@ export default function AlertPopup(props: PopupProps) {
         bottom: 10,
         width: props.width,
         background: props.type === 'alert' ? '#FFF889' : props.type === 'highalert' ? '#ff8989' : '#f0f0f0',
-        border: `1px solid ${props.type === 'alert' ? '#FFF889' : props.type === 'highalert' ? '#c54444' : '#cacaca'}`
+        border: `1px solid ${props.type === 'alert' ? '#ffd089' : props.type === 'highalert' ? '#c54444' : '#cacaca'}`
       }} 
       className='alert-popup'
     >
