@@ -8,24 +8,18 @@ const Context = createContext();
 const history = createBrowserHistory();
 
 function AuthProvider({ children }) {
+  const [loading, setLoading] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [userInformations, setUserInformations] = useState({});
-  
-  useEffect(() => {
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-  }, []);
+  const callLoading = (value) => {
+    setLoading(value)
+  }
 
   async function handleLogin(data) {
-    setUserInformations(data);
     const {
       user: { id },
     } = data;
-
+    setLoading(true)
     history.push(`/${id}/estoque`);
     window.location.reload();
     setAuthenticated(true);
@@ -44,23 +38,32 @@ function AuthProvider({ children }) {
     history.goBack();
   }
 
-  while (loading) {
-    return  (
+  return  (
+    <>
+    {loading && 
       <>
-  
-      <Loader type={'TailSpin'} color={'var(--blue)'} className="loading-component" height={'10%'} width={'10%'} />
-      <Context.Provider value={{ authenticated, handleLogin, handleLogout, userInformations, handleGoBack }}>
-        {children}
-      </Context.Provider>
-
+        <Loader type={'TailSpin'} color={'var(--blue)'} className="loading-component" height={'10%'} width={'10%'} />
+        <div style={{
+          background: 'rgba(255,255,255,0.8)',
+          width: '100vw',
+          height: '100vh',
+          position: 'absolute',
+          zIndex: 10,
+        }} />
       </>
-    )
-  }
+    }
+    <Context.Provider value={{ 
+      callLoading, 
+      authenticated,
 
-  return (
-    <Context.Provider value={{ authenticated, handleLogin, handleLogout, userInformations, handleGoBack }}>
+      handleLogin, 
+      handleLogout, 
+      handleGoBack,
+    }}>
       {children}
     </Context.Provider>
+
+    </>
   )
 }
 

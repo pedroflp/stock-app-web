@@ -21,14 +21,10 @@ interface User {
 export default function SideBar() {
   const params = useParams<ProfileParams>();
   const [user, setUser] = useState<User>()
-
-  useEffect(() => {
-    api.get(`/${params.id}/estoque`).then(response => {
-      setUser(response.data);
-    })
-  }, [params.id]);
   
-  const { handleLogout } = useContext(Context);
+  const { handleLogout, userId } = useContext(Context);
+
+  const id = localStorage.getItem('uId')
 
   return ( 
     <aside className='sidebar-container'>
@@ -37,7 +33,7 @@ export default function SideBar() {
       </div>
 
       <div className='sidebar-section-buttons'>
-        <Link to={`/${user?.id}/criar-produto`}><AiOutlinePlus size={26} /></Link>
+        <Link to={`/${id}/criar-produto`}><AiOutlinePlus size={26} /></Link>
       </div>
 
       <div>

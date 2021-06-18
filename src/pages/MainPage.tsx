@@ -36,6 +36,7 @@ export default function MainPage() {
             <TopBar />
 
             <AlertPopup 
+              icon
               title="Você está livre para criar, alterar e deletar os produtos!"
               description="Em algumas horas todas alterações serão automaticamente desfeitas, voltando para os dados iniciais!"
               type="alert"

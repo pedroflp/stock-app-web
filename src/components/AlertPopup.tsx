@@ -7,55 +7,28 @@ interface PopupProps {
   title: string,
   description: string,
   type: string,
+  modal?: boolean,
+  icon?: boolean,
+  width?: number,
 }
 
 export default function AlertPopup(props: PopupProps) {
   return (
-    <>
-
-    { props.type === "alert" ? (
-      <div 
-        style={{
-          background: '#FFF889',
-          border: '1px solid #ffda89'
-        }} 
-        className='alert-popup'
-      >
-        <FiAlertTriangle size={40} />
-        <p>
-        <strong>{props.title}</strong> <br/>
-        {props.description}</p>
-      </div>
-      ) : 
-      props.type === "highalert" ? (
-        <div
-          style={{
-            background: '#ff8989',
-            border: '1px solid #ff5c5c'
-          }} 
-          className='alert-popup'
-        >
-          <FiAlertOctagon size={30} />
-          <p>
-          <strong>{props.title}</strong> <br/>
-          {props.description}</p>
-        </div>
-      ) : (
-        <div 
-          style={{
-            background: '#ffffff',
-            border: '1px solid #e4e4e4'
-          }} 
-          className='alert-popup'
-        >
-          <AiOutlineInfo size={30} />
-          <p>
-          <strong>{props.title}</strong> <br/>
-          {props.description}</p>
-        </div>
-      )
-    }
-
-    </>
+    <div 
+      style={{
+        position: props.modal ? 'absolute' : 'unset',
+        left: 20,
+        bottom: 10,
+        width: props.width,
+        background: props.type === 'alert' ? '#FFF889' : props.type === 'highalert' ? '#ff8989' : '#f0f0f0',
+        border: `1px solid ${props.type === 'alert' ? '#FFF889' : props.type === 'highalert' ? '#c54444' : '#cacaca'}`
+      }} 
+      className='alert-popup'
+    >
+     {props.icon && <FiAlertTriangle size={30} />}
+      <p>
+      <strong>{props.title}</strong> <br/>
+      {props.description}</p>
+    </div>
   )
 }

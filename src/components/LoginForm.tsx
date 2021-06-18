@@ -7,7 +7,7 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import '../styles/components/PasswordInput.css';
 
 export default function LoginForm() {
-  const { handleLogin } = useContext(Context);
+  const { handleLogin, getUserId } = useContext(Context);
   
   const [isHidden, setIsHidden] = useState(true);
   
@@ -20,14 +20,17 @@ export default function LoginForm() {
     await api.post('login', {
       username: username,
       password: password
-
     }).then(response => {
       const data = response.data;
+    
+      localStorage.setItem('uId', data.user.id)
+      localStorage.setItem('username', data.user.username)
+
       handleLogin(data);
     });
     
   }
-
+  
   function showPassword() {
   setIsHidden(false);
   }
